@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acme Futures Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Public Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            background-color: #1c1c1c; /* Darker background for sidebar */
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar .menu-item {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            color: #f59e0b; /* Orange color for text */
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar .menu-item i {
+            margin-right: 10px; /* Space between icon and text */
+        }
+
+        .sidebar .menu-item.active, .sidebar .menu-item:hover {
+            background-color: #f59e0b; /* Orange highlight */
+            color: black; /* Text color when active or hovered */
+        }
+
+        .sidebar .menu-item:hover {
+            background-color: rgba(245, 158, 11, 0.2); /* Lighter hover background */
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            background-color: #121212; /* Slightly lighter background */
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #1c1c1c; /* Sidebar color */
+            color: #f59e0b; /* Orange text */
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Space between navbar and content */
+        }
+
+        .navbar h1 {
+            margin: 0;
+        }
+
+        
+        .sidebar .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .logo img {
+            width: 120px; /* Adjust size as needed */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar .logo h1 {
+            color: #f59e0b;
+            font-size: 1.25rem;
+            margin: 0;
+            font-weight: bold;
+        }
+        .footer {
+            background-color: #1c1c1c; /* Same as sidebar */
+            color: #f59e0b; /* Orange text */
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: calc(100% - 250px); /* Adjust for sidebar width */
+            left: 250px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .card {
+            background-color: #2d2d2d; /* Darker card background */
+            border: 1px solid rgba(245, 158, 11, 0.3); /* Orange border */
+            box-shadow: 0px 4px 20px rgba(245, 158, 11, 0.3); /* Soft shadow */
+        }
+
+        .card-title {
+            color: #f59e0b; /* Orange text */
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .bg-primary {
+            background-color: #2d2d2d !important; /* Dark primary background */
+        }
+
+        .bg-warning {
+            background-color: #2d2d2d !important; /* Dark warning background */
+        }
+
+        .bg-dark {
+            background-color: #2d2d2d !important; /* Dark card background */
+        }
+
+        /* TradingView Widget */
+        .tradingview-widget-container {
+            margin-top: 20px;
+        }
+
+        /* Footer for smaller screens */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                box-shadow: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .footer {
+                width: 100%;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="img/logo2.jpg" alt="Company Logo"> <!-- Replace with your logo image -->
+            <h1>Acme Futures</h1>
+        </div>
+        <a href="adminHome.html" class="menu-item active"><i class="fas fa-home"></i>Home</a>
+        <a href="crypto.html" class="menu-item"><i class="fas fa-chart-line"></i>Crypto</a>
+        <a href="deposit.html" class="menu-item"><i class="fas fa-dollar-sign"></i>Deposit</a>
+        <a href="transaction.html" class="menu-item"><i class="fas fa-exchange-alt"></i>Transaction</a>
+        <a href="profile.html" class="menu-item"><i class="fas fa-user"></i>Profile</a>
+        <a href="subscription.html" class="menu-item"><i class="fas fa-credit-card"></i>Subscription</a>
+        <a href="wallet.html" class="menu-item"><i class="fas fa-wallet"></i>Wallet</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="navbar">
+            <h1>Admin Dashboard</h1>
+        </div>
+        
+        <div class="container-xxl flex-grow-1 container-p-y">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-12 mb-4">
+                    <div class="card bg-primary">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="../assets/img/icons/unicons/chart-success.png" alt="chart success" class="rounded" />
+                                </div>
+                            </div>
+                            <span class="fw-semibold d-block mb-1 text-white">My Profit</span>
+                            <h3 class="card-title mb-2 text-white">$0.00</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 mb-4">
+                    <div class="card bg-warning">
+                        <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between">
+                                <div class="avatar flex-shrink-0">
+                                    <img src="../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
+                                </div>
+                            </div>
+                            <span class="fw-semibold d-block mb-1 text-white">Capital</span>
+                            <h3 class="card-title mb-2 text-white">$0.00</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 mb-4">
+                <div class="card bg-dark">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between flex-column gap-3">
+                            <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
+                                <div class="card-title">
+                                    <h5 class="text-nowrap mb-2 text-white">Total Balance</h5>
+                                </div>
+                                <div class="mt-sm-auto">
+                                    <h3 class="mb-0 text-white">$0.00</h3>
+                                </div>
+                            </div>
+                            <div id="profileReportChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div id="tradingview_abe6e"></div>
+
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    new TradingView.widget(
+                        {
+                            "width": 980,
+                            "height": 540,
+                            "symbol": "FX:USDCAD",
+                            "interval": "1",
+                            "timezone": "Etc/UTC",
+                            "theme": "dark",
+                            "style": "0",
+                            "locale": "en",
+                            "toolbar_bg": "#1c1c1c",
+                            "enable_publishing": false,
+                            "allow_symbol_change": true,
+                            "details": true,
+                            "hotlist": true,
+                            "calendar": true,
+                            "container_id": "tradingview_abe6e"
+                        }
+                    );
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; <script>document.write(new Date().getFullYear());</script> Acme Futures</p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

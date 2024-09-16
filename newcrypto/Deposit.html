@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: black; /* Black background for the body */
+            color: white; /* White text color */
+            font-family: 'Public Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            background-color: #1c1c1c; /* Darker background for sidebar */
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .logo img {
+            width: 120px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar .logo h1 {
+            color: #f59e0b;
+            font-size: 1.25rem;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .sidebar .menu-item {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            color: #f59e0b; /* Orange color for text */
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar .menu-item i {
+            margin-right: 10px; /* Space between icon and text */
+        }
+
+        .sidebar .menu-item.active, .sidebar .menu-item:hover {
+            background-color: #f59e0b; /* Orange highlight */
+            color: black; /* Text color when active or hovered */
+        }
+
+        .sidebar .menu-item:hover {
+            background-color: rgba(245, 158, 11, 0.2); /* Lighter hover background */
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            background-color: #121212; /* Slightly lighter background */
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #1c1c1c; /* Sidebar color */
+            color: #f59e0b; /* Orange text */
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Space between navbar and content */
+        }
+
+        .navbar h1 {
+            margin: 0;
+        }
+
+        .card {
+            background-color: #1c1c1c; /* Darker card background */
+            border: 1px solid #f59e0b; /* Orange border */
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .form-label {
+            color: #f59e0b; /* Orange label color */
+        }
+
+        .form-control {
+            background-color: #121212; /* Dark input background */
+            border-color: #f59e0b; /* Orange border */
+            color: white; /* White text */
+        }
+
+        .form-check-input:checked {
+            background-color: #f59e0b; /* Orange checkmark */
+            border-color: #f59e0b; /* Orange border */
+        }
+
+        .form-check-label {
+            color: white; /* White text for check labels */
+        }
+
+        .btn-primary {
+            background-color: #f59e0b; /* Orange background */
+            border-color: #f59e0b; /* Orange border */
+            color: black; /* Black text */
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(245, 158, 11, 0.8); /* Lighter orange on hover */
+            border-color: rgba(245, 158, 11, 0.8); /* Lighter orange border on hover */
+        }
+
+        .footer {
+            background-color: #1c1c1c; /* Same as sidebar */
+            color: #f59e0b; /* Orange text */
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: calc(100% - 250px); /* Adjust for sidebar width */
+            left: 250px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                box-shadow: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .footer {
+                width: 100%;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="img/logo2.jpg" alt="Company Logo"> <!-- Replace with your logo image -->
+            <h1>Acme Futures</h1>
+        </div>
+        <a href="adminHome.html" class="menu-item"><i class="fas fa-home"></i>Home</a>
+        <a href="crypto.html" class="menu-item"><i class="fas fa-chart-line"></i>Crypto</a>
+        <a href="deposit.html" class="menu-item active"><i class="fas fa-dollar-sign"></i>Deposit</a>
+        <a href="transaction.html" class="menu-item"><i class="fas fa-exchange-alt"></i>Transaction</a>
+        <a href="profile.html" class="menu-item"><i class="fas fa-user"></i>Profile</a>
+        <a href="subscription.html" class="menu-item"><i class="fas fa-credit-card"></i>Subscription</a>
+        <a href="wallet.html" class="menu-item"><i class="fas fa-wallet"></i>Wallet</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="navbar">
+            <h1>Deposit</h1>
+        </div>
+
+        <div class="container-lg flex-grow-1 container-p-y">
+            <h3 class="fw-bold py-3 mb-4 text-center">Make Deposit to Your Acme Futures Account!</h3>
+
+            <div class="col-lg-7 col-12 mx-auto">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <form action="" method="POST">
+                            <input type="hidden" name="_token" value="dmdG82plleWjbVZeghvxvdhxjE5QM6d2Dm0nfdV2">
+                            <div class="mb-3">
+                                <label class="form-label" for="amount">Amount to Deposit</label>
+                                <input type="number" class="form-control" id="amount" name="amount" placeholder="1000.00" required />
+                                <div class="invalid-feedback">
+                                    Please enter a valid amount.
+                                </div>
+                                <small>Minimum: 1000.00 USD</small>
+                            </div>
+
+                            <p class="fw-bold mt-4">Deposit Method</p>
+
+                            <div class="mb-4">
+                                <div class="form-check mt-3">
+                                    <input name="paypal" class="form-check-input" type="radio" value="paypal" id="paypal" />
+                                    <label class="form-check-label" for="paypal"> PayPal (Unavailable) </label>
+                                </div>
+                                <div class="form-check mt-3">
+                                    <input name="bank_transfer" class="form-check-input" type="radio" value="bank transfer" id="bank_transfer" />
+                                    <label class="form-check-label" for="bank_transfer"> Bank Transfer (Unavailable) </label>
+                                </div>
+                                <div class="form-check mt-3">
+                                    <input name="atm_card" class="form-check-input" type="radio" value="atm card" id="atm_card" />
+                                    <label class="form-check-label" for="atm_card"> Credit/Debit Card (Unavailable) </label>
+                                </div>
+
+                                <div class="form-check mt-3">
+                                    <input name="payment_method" class="form-check-input" type="radio" value="crypto" id="payment_method" checked required />
+                                    <label class="form-check-label" for="payment_method"> Crypto </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Continue to Buy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Acme Futures</p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
